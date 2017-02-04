@@ -15,8 +15,7 @@
 package main
 
 import (
-	"fmt"
-	"github.com/mgi166/review/cmd"
+	"github.com/mgi166/review-request/cmd"
 )
 
 function main () {
