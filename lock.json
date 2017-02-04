@@ -1,22 +1,6 @@
 {
-    "memo": "09059040cbd500bba8d06a2ca2f3c690acb566222beaf99eb81c68cf2cc1f355",
+    "memo": "e93eb2a5a23871e56fb9265dca2c20ca0b9fbffc6865b86954b3691575d898cc",
     "projects": [
-        {
-            "name": "github.com/armon/go-radix",
-            "branch": "master",
-            "revision": "4239b77079c7b5d1243b7b4736304ce8ddb6f0f2",
-            "packages": [
-                "."
-            ]
-        },
-        {
-            "name": "github.com/bgentry/speakeasy",
-            "branch": "master",
-            "revision": "675b82c74c0ed12283ee81ba8a534c8982c07b85",
-            "packages": [
-                "."
-            ]
-        },
         {
             "name": "github.com/fsnotify/fsnotify",
             "version": "v1.4.2",
@@ -45,22 +29,6 @@
             "name": "github.com/magiconair/properties",
             "version": "v1.7.0",
             "revision": "c265cfa48dda6474e208715ca93e987829f572f8",
-            "packages": [
-                "."
-            ]
-        },
-        {
-            "name": "github.com/mattn/go-isatty",
-            "version": "v0.0.1",
-            "revision": "3a115632dcd687f9c8cd01679c83a06a0e21c1f3",
-            "packages": [
-                "."
-            ]
-        },
-        {
-            "name": "github.com/mitchellh/cli",
-            "branch": "master",
-            "revision": "16bda1254c1d199d9f10a4b90060eda75221a006",
             "packages": [
                 "."
             ]
@@ -133,6 +101,14 @@
             "name": "github.com/spf13/viper",
             "branch": "master",
             "revision": "5ed0fc31f7f453625df314d8e66b9791e8d13003",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/urfave/cli",
+            "version": "v1.19.1",
+            "revision": "0bdeddeeb0f650497d603c4ad7b20cfe685682f6",
             "packages": [
                 "."
             ]
