@@ -15,11 +15,11 @@
 package cmd
 
 import (
+	"errors"
 	"fmt"
 	"os"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
-	"github.com/ashwanthkumar/slack-go-webhook"
 )
 
 var cfgFile string
@@ -36,13 +36,21 @@ This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 // Uncomment the following line if your bare application
 // has an action associated with it:
-//	Run: func(cmd *cobra.Command, args []string) { },
+	Run: func(cmd *cobra.Command, args []string) {
+	},
+	PreRunE: func(cmd *cobra.Command, args []string) error {
+		if len(args) == 0 {
+			return errors.New("TEST")
+		}
+		return nil
+	},
 }
 
 // Execute adds all child commands to the root command sets flags appropriately.
 // This is called by main.main(). It only needs to happen once to the rootCmd.
 func Execute() {
-	if err := RootCmd.Execute(); err != nil {
+	err := RootCmd.Execute()
+	if err != nil {
 		fmt.Println(err)
 		os.Exit(-1)
 	}
