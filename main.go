@@ -18,6 +18,6 @@ import (
 	"github.com/mgi166/review-request/cmd"
 )
 
-function main () {
+func main () {
 	cmd.Execute()
 }
