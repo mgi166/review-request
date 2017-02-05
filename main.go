@@ -103,8 +103,13 @@ func main () {
 		}
 
 		attachment := slack.Attachment {}
+		var config Config
 		user, _ := user.Current()
 		configPath := path.Join(user.HomeDir, ".review.toml")
+
+		_, err := toml.DecodeFile(configPath, &config)
+
+		if err != nil { panic(err) }
 
 		payload := slack.Payload(
 			"test",
