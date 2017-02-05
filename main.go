@@ -60,6 +60,7 @@ func main () {
 	app.Name = "review"
 	app.Usage = "Requests Code review to team member from terminal."
 	app.Version = "0.0.1"
+	app.Author = "mgi166"
 	cli.AppHelpTemplate = helpTemplate
 
 	app.Action = func(context *cli.Context) error {
