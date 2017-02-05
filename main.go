@@ -15,8 +15,15 @@
 package main
 
 import (
+    "bytes"
     "fmt"
     "os"
+    "os/user"
+    "path"
+    "reflect"
+    "text/template"
+    "strings"
+    "time"
     "github.com/ashwanthkumar/slack-go-webhook"
     "github.com/BurntSushi/toml"
     "github.com/urfave/cli"
@@ -110,8 +117,28 @@ func main () {
 
 		if err != nil { panic(err) }
 
+		week := time.Now().Weekday().String()
+
+		phase := "Phase" + context.Args().Get(1)
+		reviewers := reflect.ValueOf(config.Reviewer).FieldByName(week).FieldByName(phase)
+		tmpl, err := template.New("text").Parse(config.Text)
+
+		if err != nil { panic(err) }
+
+		var buffer bytes.Buffer
+
+		dict := make(map[string]string)
+
+		dict["reviewers"] = strings.Join(reviewers.Interface().([]string), " ")
+		dict["url"] = context.Args().Get(0)
+		dict["phase"] = context.Args().Get(1)
+
+		if err := tmpl.Execute(&buffer, dict); err != nil {
+			panic(err)
+		}
+
 		payload := slack.Payload(
-			"test",
+			buffer.String(),
 			config.Review.Slack.UserName,
 			config.Review.Slack.IconUrl,
 			config.Review.Slack.Channel,
