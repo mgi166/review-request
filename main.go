@@ -18,6 +18,7 @@ import (
     "fmt"
     "os"
     "github.com/ashwanthkumar/slack-go-webhook"
+    "github.com/BurntSushi/toml"
     "github.com/urfave/cli"
 )
 
