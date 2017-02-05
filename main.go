@@ -15,9 +15,35 @@
 package main
 
 import (
-	"github.com/mgi166/review-request/cmd"
+    "fmt"
+    "os"
+    "github.com/ashwanthkumar/slack-go-webhook"
+    "github.com/urfave/cli"
 )
 
 func main () {
-	cmd.Execute()
+	app := cli.NewApp()
+	app.Name = "review"
+	app.Usage = "Requests Code review to team member from terminal."
+	app.Version = "0.0.1"
+
+	app.Action = func(context *cli.Context) error {
+		webhookUrl := "https://xxxx"
+		attachment := slack.Attachment {}
+		payload := slack.Payload(
+			"test",
+			"username",
+			"icon",
+			"channel",
+			[]slack.Attachment{attachment},
+		)
+
+		if err := slack.Send(webhookUrl, "", payload); err != nil {
+			fmt.Println(err)
+		}
+
+		return nil
+	}
+
+	app.Run(os.Args)
 }
