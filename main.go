@@ -62,6 +62,10 @@ type Config struct {
 	Reviewer ReviewerConfig
 }
 
+type ReviewConfig struct {
+	Slack ReviewSlackConfig
+}
+
 func main () {
 	app := cli.NewApp()
 	app.Name = "review"
