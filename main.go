@@ -65,6 +65,11 @@ func main () {
 
 	app.Action = func(context *cli.Context) error {
 		webhookUrl := "https://xxxx"
+		if len(context.Args()) != 2 {
+			fmt.Println("ERROR: Specify just two arguments. Run 'review -h' and confirm usage.")
+			os.Exit(1)
+		}
+
 		attachment := slack.Attachment {}
 		payload := slack.Payload(
 			"test",
