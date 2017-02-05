@@ -103,7 +103,6 @@ func main () {
 	cli.AppHelpTemplate = helpTemplate
 
 	app.Action = func(context *cli.Context) error {
-		webhookUrl := "https://xxxx"
 		if len(context.Args()) != 2 {
 			fmt.Println("ERROR: Specify just two arguments. Run 'review -h' and confirm usage.")
 			os.Exit(1)
@@ -145,7 +144,7 @@ func main () {
 			[]slack.Attachment{slack.Attachment {}},
 		)
 
-		if err := slack.Send(webhookUrl, "", payload); err != nil {
+		if err := slack.Send(config.Review.Slack.WebhookUrl, "", payload); err != nil {
 			fmt.Println(err)
 		}
 
