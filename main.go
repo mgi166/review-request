@@ -66,6 +66,13 @@ type ReviewConfig struct {
 	Slack ReviewSlackConfig
 }
 
+type ReviewSlackConfig struct {
+	WebhookUrl string
+	UserName   string
+	IconUrl    string
+	Channel    string
+}
+
 func main () {
 	app := cli.NewApp()
 	app.Name = "review"
