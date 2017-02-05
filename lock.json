@@ -1,6 +1,14 @@
 {
-    "memo": "38fca3c3aa466f314e3dca6bfd02db541804c0e61d0eb0e6821beefe2f619762",
+    "memo": "2501183310c36aba661f82de081af05519e0d027a34f37589c9fec6ef9862ab4",
     "projects": [
+        {
+            "name": "github.com/BurntSushi/toml",
+            "version": "v0.2.0",
+            "revision": "bbd5bb678321a0d6e58f1099321dfa73391c1b6f",
+            "packages": [
+                "."
+            ]
+        },
         {
             "name": "github.com/ashwanthkumar/slack-go-webhook",
             "version": "v0.1",
