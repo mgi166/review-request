@@ -102,7 +102,6 @@ func main () {
 			os.Exit(1)
 		}
 
-		attachment := slack.Attachment {}
 		var config Config
 		user, _ := user.Current()
 		configPath := path.Join(user.HomeDir, ".review.toml")
@@ -113,10 +112,10 @@ func main () {
 
 		payload := slack.Payload(
 			"test",
-			"username",
-			"icon",
-			"channel",
-			[]slack.Attachment{attachment},
+			config.Review.Slack.UserName,
+			config.Review.Slack.IconUrl,
+			config.Review.Slack.Channel,
+			[]slack.Attachment{slack.Attachment {}},
 		)
 
 		if err := slack.Send(webhookUrl, "", payload); err != nil {
