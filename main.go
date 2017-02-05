@@ -56,6 +56,12 @@ COPYRIGHT:
    {{.Copyright}}{{end}}
 `
 
+type Config struct {
+	Text     string
+	Review   ReviewConfig
+	Reviewer ReviewerConfig
+}
+
 func main () {
 	app := cli.NewApp()
 	app.Name = "review"
