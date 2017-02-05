@@ -82,6 +82,11 @@ type ReviewerConfig struct {
 	Sunday    ReviewPhaseConfig
 }
 
+type ReviewPhaseConfig struct {
+	Phase1 []string
+	Phase2 []string
+}
+
 func main () {
 	app := cli.NewApp()
 	app.Name = "review"
