@@ -73,6 +73,15 @@ type ReviewSlackConfig struct {
 	Channel    string
 }
 
+type ReviewerConfig struct {
+	Monday    ReviewPhaseConfig
+	Tuesday   ReviewPhaseConfig
+	Wednesday ReviewPhaseConfig
+	Thursday  ReviewPhaseConfig
+	Friday    ReviewPhaseConfig
+	Sunday    ReviewPhaseConfig
+}
+
 func main () {
 	app := cli.NewApp()
 	app.Name = "review"
