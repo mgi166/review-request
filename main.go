@@ -76,7 +76,7 @@ type ReviewConfig struct {
 type ReviewSlackConfig struct {
 	WebhookUrl string
 	UserName   string
-	IconUrl    string
+	Icon       string
 	Channel    string
 }
 
@@ -139,7 +139,7 @@ func main () {
 		payload := slack.Payload(
 			buffer.String(),
 			config.Review.Slack.UserName,
-			config.Review.Slack.IconUrl,
+			config.Review.Slack.Icon,
 			config.Review.Slack.Channel,
 			[]slack.Attachment{slack.Attachment {}},
 		)
