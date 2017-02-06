@@ -146,6 +146,8 @@ func main () {
 
 		if err := slack.Send(config.Review.Slack.WebhookUrl, "", payload); err != nil {
 			fmt.Println(err)
+		} else {
+			fmt.Printf("SUCCESS: Requests to %s.\n", dict["reviewers"])
 		}
 
 		return nil
