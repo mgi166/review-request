@@ -110,7 +110,7 @@ func main () {
 
 		var config Config
 		user, _ := user.Current()
-		configPath := path.Join(user.HomeDir, ".review.toml")
+		configPath := path.Join(user.HomeDir, ".review")
 
 		_, err := toml.DecodeFile(configPath, &config)
 
