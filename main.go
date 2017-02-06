@@ -100,6 +100,13 @@ func main () {
 	app.Usage = "Requests Code review to team member from terminal."
 	app.Version = "0.0.1"
 	app.Author = "mgi166"
+	app.Flags = []cli.Flag{
+		cli.StringFlag{
+			Name: "config, c",
+			Usage: "Load configuration from `FILE`. Default is ~/.review",
+		},
+	}
+
 	cli.AppHelpTemplate = helpTemplate
 
 	app.Action = func(context *cli.Context) error {
