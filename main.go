@@ -117,7 +117,16 @@ func main () {
 
 		var config Config
 		user, _ := user.Current()
-		configPath := path.Join(user.HomeDir, ".review")
+
+		var configPath string
+
+		if context.String("config") == "" {
+			configPath = path.Join(user.HomeDir, ".review")
+		} else {
+			configPath = context.String("config")
+		}
+
+		fmt.Println(configPath)
 
 		_, err := toml.DecodeFile(configPath, &config)
 
