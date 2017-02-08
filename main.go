@@ -126,8 +126,6 @@ func main () {
 			configPath = context.String("config")
 		}
 
-		fmt.Println(configPath)
-
 		_, err := toml.DecodeFile(configPath, &config)
 
 		if err != nil { panic(err) }
