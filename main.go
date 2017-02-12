@@ -150,13 +150,13 @@ func main () {
 			panic(err)
 		}
 
-		payload := slack.Payload(
-			buffer.String(),
-			config.Review.Slack.UserName,
-			config.Review.Slack.Icon,
-			config.Review.Slack.Channel,
-			[]slack.Attachment{slack.Attachment {}},
-		)
+		payload := slack.Payload {
+			Text: buffer.String(),
+			Username: config.Review.Slack.UserName,
+			IconEmoji: config.Review.Slack.Icon,
+			Channel: config.Review.Slack.Channel,
+			Attachments: []slack.Attachment{slack.Attachment {}},
+		}
 
 		if err := slack.Send(config.Review.Slack.WebhookUrl, "", payload); err != nil {
 			fmt.Println(err)
