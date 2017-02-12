@@ -11,8 +11,8 @@
         },
         {
             "name": "github.com/ashwanthkumar/slack-go-webhook",
-            "version": "v0.1",
-            "revision": "6ad6dc897cd56985263af58f0343b98b3d5c2678",
+            "branch": "master",
+            "revision": "617479350161ea9827ad9a093ab20ac86f67e288",
             "packages": [
                 "."
             ]
