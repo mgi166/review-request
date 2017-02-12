@@ -112,6 +112,23 @@ func createApp(app *cli.App) *cli.App {
 	return app
 }
 
+func createConfig(context *cli.Context) Config {
+	var config Config
+	var configPath string
+
+	user, _ := user.Current()
+
+	if context.String("config") == "" {
+		configPath = path.Join(user.HomeDir, ".review")
+	} else {
+		configPath = context.String("config")
+	}
+
+	if _, err := toml.DecodeFile(configPath, &config); err != nil { panic(err) }
+
+	return config
+}
+
 func main () {
 	app := createApp(cli.NewApp())
 
@@ -121,20 +138,7 @@ func main () {
 			os.Exit(1)
 		}
 
-		var config Config
-		user, _ := user.Current()
-
-		var configPath string
-
-		if context.String("config") == "" {
-			configPath = path.Join(user.HomeDir, ".review")
-		} else {
-			configPath = context.String("config")
-		}
-
-		_, err := toml.DecodeFile(configPath, &config)
-
-		if err != nil { panic(err) }
+		config := createConfig(context)
 
 		week := time.Now().Weekday().String()
 
