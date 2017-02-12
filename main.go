@@ -39,8 +39,8 @@ USAGE:
 ARGUMENTS
    Requires just two arguments.
 
-   * PULL_REQUEST_URL: github pull request url. e.g) https://github.com/rails/rails/pull/1
-   * PHASE: Review phase. e.g) 1, 2
+   - PULL_REQUEST_URL: github pull request url. e.g) https://github.com/rails/rails/pull/1
+   - PHASE: Review phase. e.g) 1, 2
 
 EXAMPLE:
    review https://github.com/mgi166/rails-showcase/pull/1 1
