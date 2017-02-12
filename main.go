@@ -94,8 +94,9 @@ type ReviewPhaseConfig struct {
 	Phase2 []string
 }
 
-func main () {
-	app := cli.NewApp()
+func createApp(app *cli.App) *cli.App {
+	app.Name = "review"
+
 	app.Name = "review"
 	app.Usage = "Requests Code review to team member from terminal."
 	app.Version = "0.0.1"
@@ -106,8 +107,13 @@ func main () {
 			Usage: "Load configuration from `FILE`. Default is ~/.review",
 		},
 	}
-
 	cli.AppHelpTemplate = helpTemplate
+
+	return app
+}
+
+func main () {
+	app := createApp(cli.NewApp())
 
 	app.Action = func(context *cli.Context) error {
 		if len(context.Args()) != 2 {
