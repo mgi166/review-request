@@ -165,6 +165,7 @@ func main () {
 			Username: config.Review.Slack.UserName,
 			IconEmoji: config.Review.Slack.Icon,
 			Channel: config.Review.Slack.Channel,
+			LinkNames: "1",
 			Attachments: []slack.Attachment{slack.Attachment {}},
 		}
 
