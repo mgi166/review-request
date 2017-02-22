@@ -24,7 +24,7 @@ import (
     "text/template"
     "strings"
     "time"
-    "github.com/ashwanthkumar/slack-go-webhook"
+    "github.com/mgi166/slack-go-webhook"
     "github.com/BurntSushi/toml"
     "github.com/urfave/cli"
 )
