@@ -112,7 +112,7 @@ func createApp(app *cli.App) *cli.App {
 		},
 		cli.BoolFlag{
 			Name: "dry-run, d",
-			Usage: "Dry run. Default is `false`. `true` is review request does not send.",
+			Usage: "Dry run. If true, review request is not sent. (default: false)",
 		},
 	}
 	cli.AppHelpTemplate = helpTemplate
