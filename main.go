@@ -139,11 +139,6 @@ func main () {
 	app := createApp(cli.NewApp())
 
 	app.Action = func(context *cli.Context) error {
-		if len(context.Args()) != 2 {
-			fmt.Println("ERROR: Specify just two arguments. Run 'review -h' and confirm usage.")
-			os.Exit(1)
-		}
-
 		config := createConfig(context)
 
 		week := time.Now().Weekday().String()
