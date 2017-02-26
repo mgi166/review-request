@@ -106,6 +106,10 @@ func createApp(app *cli.App) *cli.App {
 			Name: "config, c",
 			Usage: "Load configuration from `FILE`. Default is ~/.review",
 		},
+		cli.BoolFlag{
+			Name: "dry-run, d",
+			Usage: "Dry run. Default is `false`. `true` is review request does not send.",
+		},
 	}
 	cli.AppHelpTemplate = helpTemplate
 
@@ -169,10 +173,14 @@ func main () {
 			Attachments: []slack.Attachment{slack.Attachment {}},
 		}
 
-		if err := slack.Send(config.Review.Slack.WebhookUrl, "", payload); err != nil {
-			fmt.Println(err)
+		if context.Bool("dry-run") {
+			fmt.Println("dry-run: Requests to %s.\n", dict["reviewers"])
 		} else {
-			fmt.Printf("SUCCESS: Requests to %s.\n", dict["reviewers"])
+			if err := slack.Send(config.Review.Slack.WebhookUrl, "", payload); err != nil {
+				fmt.Println(err)
+			} else {
+				fmt.Printf("SUCCESS: Requests to %s.\n", dict["reviewers"])
+			}
 		}
 
 		return nil
