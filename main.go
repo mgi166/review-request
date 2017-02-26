@@ -38,13 +38,10 @@ USAGE:
    {{if .UsageText}}{{.UsageText}}{{else}}{{.HelpName}} {{if .VisibleFlags}}[global options]{{end}} {{if .ArgsUsage}}{{.ArgsUsage}}{{else}}[arguments...]{{end}}{{end}}{{if .Version}}{{if not .HideVersion}}
 
 ARGUMENTS
-   Requires just two arguments.
-
    - PULL_REQUEST_URL: github pull request url. e.g) https://github.com/rails/rails/pull/1
-   - PHASE: Review phase. e.g) 1, 2
 
 EXAMPLE:
-   review https://github.com/mgi166/rails-showcase/pull/1 1
+   review https://github.com/mgi166/rails-showcase/pull/1
 
 VERSION:
    {{.Version}}{{end}}{{end}}{{if .Description}}
