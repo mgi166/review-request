@@ -23,6 +23,7 @@ import (
     "reflect"
     "text/template"
     "strings"
+    "strconv"
     "time"
     "github.com/ashwanthkumar/slack-go-webhook"
     "github.com/BurntSushi/toml"
@@ -147,7 +148,7 @@ func main () {
 
 		week := time.Now().Weekday().String()
 
-		phase := "Phase" + context.Args().Get(1)
+		phase := "Phase" + strconv.Itoa(context.Int("phase"))
 		reviewers := reflect.ValueOf(config.Reviewer).FieldByName(week).FieldByName(phase)
 		tmpl, err := template.New("text").Parse(config.Text)
 
