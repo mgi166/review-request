@@ -114,6 +114,10 @@ func createApp(app *cli.App) *cli.App {
 			Name: "dry-run, d",
 			Usage: "Dry run. If true, review request is not sent. (default: false)",
 		},
+		cli.IntFlag{
+			Name: "phase, p",
+			Usage: "Review phase. For example, specify `1` when 1 phase review",
+		},
 	}
 	cli.AppHelpTemplate = helpTemplate
 
