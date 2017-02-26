@@ -1,5 +1,5 @@
 {
-    "memo": "e2c39ba5c09d1e88f6d2e415e7df575f833dcc593b1a132d11cec0001e745436",
+    "memo": "0c68fd55dc09275b1d0c2dace306c3f553d2cfacd8f5a94f05604e1781a870d3",
     "projects": [
         {
             "name": "github.com/BurntSushi/toml",
@@ -10,9 +10,9 @@
             ]
         },
         {
-            "name": "github.com/mgi166/slack-go-webhook",
-            "version": "master",
-            "revision": "2fc7597310bd0d6b70957cc65b3b2db82025dda3",
+            "name": "github.com/ashwanthkumar/slack-go-webhook",
+            "branch": "master",
+            "revision": "fe52e9bf2b376c1d74222c8deabda62fe3f29ed3",
             "packages": [
                 "."
             ]
