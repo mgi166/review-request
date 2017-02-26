@@ -142,8 +142,9 @@ func main () {
 		config := createConfig(context)
 
 		week := time.Now().Weekday().String()
+		phaseNum := strconv.Itoa(context.Int("phase"))
 
-		phase := "Phase" + strconv.Itoa(context.Int("phase"))
+		phase := "Phase" + phaseNum
 		reviewers := reflect.ValueOf(config.Reviewer).FieldByName(week).FieldByName(phase)
 		tmpl, err := template.New("text").Parse(config.Text)
 
@@ -155,7 +156,7 @@ func main () {
 
 		dict["reviewers"] = strings.Join(reviewers.Interface().([]string), " ")
 		dict["url"] = context.Args().Get(0)
-		dict["phase"] = context.Args().Get(1)
+		dict["phase"] = phaseNum
 
 		if err := tmpl.Execute(&buffer, dict); err != nil {
 			panic(err)
