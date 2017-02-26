@@ -101,10 +101,14 @@ func createApp(app *cli.App) *cli.App {
 	app.Usage = "Requests Code review to team member from terminal."
 	app.Version = "0.0.1"
 	app.Author = "mgi166"
+
+	user, _ := user.Current()
+
 	app.Flags = []cli.Flag{
 		cli.StringFlag{
 			Name: "config, c",
-			Usage: "Load configuration from `FILE`. Default is ~/.review",
+			Value: path.Join(user.HomeDir, ".review"),
+			Usage: "Load configuration from `FILE`.",
 		},
 		cli.BoolFlag{
 			Name: "dry-run, d",
@@ -118,17 +122,10 @@ func createApp(app *cli.App) *cli.App {
 
 func createConfig(context *cli.Context) Config {
 	var config Config
-	var configPath string
 
-	user, _ := user.Current()
-
-	if context.String("config") == "" {
-		configPath = path.Join(user.HomeDir, ".review")
-	} else {
-		configPath = context.String("config")
+	if _, err := toml.DecodeFile(context.String("config"), &config); err != nil {
+		panic(err)
 	}
-
-	if _, err := toml.DecodeFile(configPath, &config); err != nil { panic(err) }
 
 	return config
 }
