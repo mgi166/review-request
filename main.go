@@ -41,7 +41,14 @@ ARGUMENTS
    - PULL_REQUEST_URL: github pull request url. e.g) https://github.com/rails/rails/pull/1
 
 EXAMPLE:
-   review https://github.com/mgi166/rails-showcase/pull/1
+   # Normal
+   review-request https://github.com/mgi166/review-request/pull/1
+
+   # Specify review phase
+   review-request -p 1 https://github.com/mgi166/review-request/pull/1
+
+   # Dry run
+   review-request -d true https://github.com/mgi166/review-request/pull/1
 
 VERSION:
    {{.Version}}{{end}}{{end}}{{if .Description}}
