@@ -109,6 +109,10 @@ func createApp(app *cli.App) *cli.App {
 			Name: "phase, p",
 			Usage: "Review phase. For example, specify `1` when 1 phase review",
 		},
+		cli.StringFlag{
+			Name: "reviewer, r",
+			Usage: "Reviewer name. Request the review to specified reviewer.",
+		},
 	}
 	cli.AppHelpTemplate = helpTemplate
 
@@ -144,7 +148,12 @@ func main () {
 
 		dict := make(map[string]string)
 
-		dict["reviewers"] = strings.Join(reviewers.Interface().([]string), " ")
+		if context.String("reviewer") == "" {
+			dict["reviewers"] = strings.Join(reviewers.Interface().([]string), " ")
+		} else {
+			dict["reviewers"] = context.String("reviewer")
+		}
+
 		dict["url"] = context.Args().Get(0)
 		dict["phase"] = phaseNum
 
