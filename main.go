@@ -90,7 +90,7 @@ func createApp(app *cli.App) *cli.App {
 
 	app.Name = "review"
 	app.Usage = "Requests Code review to team member from terminal."
-	app.Version = "0.0.2"
+	app.Version = "0.0.3"
 	app.Author = "mgi166"
 
 	user, _ := user.Current()
